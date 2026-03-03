@@ -1,70 +1,108 @@
-# Getting Started with Create React App
+# TaskFlow – Task Management System
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+TaskFlow is a full-stack task management application built using React, Node.js, Express, and MongoDB.  
+The project allows users to securely create accounts, log in, and manage tasks with role-based access.
 
-## Available Scripts
+This project demonstrates real-world full-stack development concepts including authentication, REST APIs, protected routes, and database persistence.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 📸 Screenshots
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 🔐 Signup & Login
+![Signup Page](screenshots/signup.png)
+![Login Page](screenshots/login.png)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### 📋 Dashboard & Task Management
+![Dashboard](screenshots/dashboard.png)
 
-### `npm test`
+### 🗄️ MongoDB Data Persistence
+![MongoDB Compass](screenshots/mongodb.png)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## 🚀 Features
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- User Signup & Login with secure password hashing
+- Role-based access (Manager / Employee)
+- Protected routes for authenticated users
+- Create and view tasks
+- Persistent data storage using MongoDB
+- Login activity tracking (last login time & login count)
+- Clean and responsive user interface
+- REST API based frontend–backend communication
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 🛠️ Tech Stack
 
-### `npm run eject`
+### Frontend
+- React.js
+- React Router
+- JavaScript (ES6)
+- HTML5 & CSS3
+- Axios
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Backend
+- Node.js
+- Express.js
+- bcrypt (password hashing)
+- REST APIs
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Database
+- MongoDB (Local – MongoDB Compass)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Tools
+- GitHub
+- Postman
+- MongoDB Compass
+- VS Code
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+---
 
-## Learn More
+## 📂 Project Structure
+    │
+├── frontend/
+│ ├── src/
+│ │ ├── pages/
+│ │ ├── components/
+│ │ ├── styles/
+│ │ └── assets/
+│ └── package.json
+│
+├── backend/
+│ ├── models/
+│ ├── routes/
+│ ├── server.js
+│ └── package.json
+│
+└── README.md
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+## ⚙️ How to Run This Project Locally
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Follow the steps below to run the project on your local machine.
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### 1️⃣ Clone the Repository
 
-### Making a Progressive Web App
+```bash
+git clone https://github.com/your-username/taskflow-task-management-system.git
+cd taskflow-task-management-system
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+2️⃣ Install Dependencies
+    cd backend
+    npm install
 
-### Advanced Configuration
+🧪 Application Workflow 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+User signs up using email and password
+Password is securely hashed and stored in MongoDB
+User logs in and authentication is verified from database
+Login activity (last login & count) is updated
+Authenticated users can create tasks
+Tasks are stored persistently in MongoDB
+Protected routes prevent unauthorized access
