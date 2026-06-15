@@ -6,21 +6,6 @@ The project allows users to securely create accounts, log in, and manage tasks w
 This project demonstrates real-world full-stack development concepts including authentication, REST APIs, protected routes, and database persistence.
 
 ---
-
-## 📸 Screenshots
-
-### 🔐 Signup & Login
-![Signup Page](screenshots/signup.png)
-![Login Page](screenshots/login.png)
-
-### 📋 Dashboard & Task Management
-![Dashboard](screenshots/dashboard.png)
-
-### 🗄️ MongoDB Data Persistence
-![MongoDB Compass](screenshots/mongodb.png)
-
----
-
 ## 🚀 Features
 
 - User Signup & Login with secure password hashing
