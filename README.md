@@ -82,6 +82,28 @@ cd taskflow-task-management-system
     cd backend
     npm install
 
+4️⃣ Configure Environment Variables
+
+Create a .env file inside the backend folder.
+
+Example:
+
+PORT=5000
+MONGO_URI=your_mongodb_connection_string
+
+5️⃣ Start the Backend
+
+From the backend folder: npm start
+The backend will run on: http://localhost:5000
+
+6️⃣ Start the Frontend
+
+Open a new terminal and return to the main project folder:
+cd ..
+npm start
+
+The frontend will run on: http://localhost:3000
+
 🧪 Application Workflow 
 
 User signs up using email and password
@@ -91,3 +113,50 @@ Login activity (last login & count) is updated
 Authenticated users can create tasks
 Tasks are stored persistently in MongoDB
 Protected routes prevent unauthorized access
+
+📸 Screenshots
+
+Screenshots of the application are available in the screenshots folder.
+The project includes screenshots of the application's interface and dashboard views.
+
+🔒 Security
+
+TaskFlow includes several security-related practices:
+Password hashing using bcryptjs
+Environment variables for sensitive configuration
+Role-based access
+Protected application routes
+Backend API separation from the frontend
+CORS configuration
+Sensitive information such as database credentials should always be stored in environment variables and should never be committed to GitHub.
+
+📊 What I Learned
+
+While building TaskFlow, I worked with:
+React component-based development
+React Router and navigation
+REST API integration
+Node.js and Express.js backend development
+MongoDB database integration
+Mongoose
+User authentication concepts
+Password hashing
+Role-based access control
+CRUD operations
+API testing
+Git and GitHub
+Frontend and backend integration.
+
+🚀 Future Improvements
+
+Some improvements planned for future versions include:
+🤖 Advanced AI-based task prioritization
+🔔 Deadline notifications and reminders
+🔎 Advanced task search and filtering
+📊 More detailed analytics
+📈 Task progress tracking
+☁️ Production deployment
+🔐 Improved authentication and authorization
+👥 More advanced team management features
+
+
