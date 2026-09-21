@@ -640,39 +640,34 @@ form button {
 .create-task-card textarea { resize: vertical; }
 @media (max-width: 1000px) { .stats-five { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 700px) { .filter-bar, .task-row-form { grid-template-columns: 1fr; } .task-card { flex-direction: column; align-items: stretch; } .task-actions { justify-content: flex-start; flex-wrap: wrap; } .page-heading-row { align-items: flex-start; flex-direction: column; } .nav-user span { display: none; } }
+
 /* =========================================================
-   GLOBAL RESPONSIVE SYSTEM
-   TaskFlow - Mobile / Tablet / Laptop / Desktop
+   FINAL TASKFLOW RESPONSIVE FIX
+   Phone + Tablet + Laptop + Desktop
    ========================================================= */
 
-/* Prevent horizontal overflow */
+/* Prevent horizontal scrolling everywhere */
 html,
 body,
 #root {
   width: 100%;
-  min-height: 100%;
+  max-width: 100%;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
 }
 
-/* Make every element respect its parent width */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
-/* Images never overflow */
 img {
   max-width: 100%;
-  height: auto;
 }
 
-/* -------------------------------
-   MAIN APP LAYOUT
--------------------------------- */
-
+/* Main layout */
 .app-layout {
   width: 100%;
   min-height: 100vh;
@@ -680,112 +675,65 @@ img {
 }
 
 .main-content {
+  flex: 1;
   min-width: 0;
   width: 100%;
-  flex: 1;
 }
 
 .page-content {
   width: 100%;
   max-width: 100%;
-  padding: clamp(16px, 3vw, 32px);
-}
-
-/* -------------------------------
-   SIDEBAR
--------------------------------- */
-
-.sidebar {
-  flex: 0 0 220px;
-  width: 220px;
-  min-height: 100vh;
-  transition: all 0.25s ease;
-}
-
-.sidebar.collapsed {
-  flex-basis: 70px;
-  width: 70px;
-}
-
-/* -------------------------------
-   NAVBAR
--------------------------------- */
-
-.navbar {
-  width: 100%;
-  min-height: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  flex-wrap: nowrap;
-}
-
-.navbar > * {
   min-width: 0;
 }
 
-.navbar button {
-  max-width: 100%;
-  white-space: nowrap;
+/* Sidebar desktop */
+.sidebar {
+  flex: 0 0 220px;
+  width: 220px;
+  min-width: 220px;
 }
 
-/* -------------------------------
-   DASHBOARD STATS
--------------------------------- */
+/* Main content must never create horizontal overflow */
+.main-content,
+.page-content {
+  overflow-x: hidden;
+}
 
+/* Dashboard cards */
 .stats-grid {
   width: 100%;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: clamp(12px, 2vw, 20px);
+  min-width: 0;
 }
 
 .stat-card {
   min-width: 0;
-  width: 100%;
-  overflow: hidden;
+  max-width: 100%;
 }
 
-.stat-card h4,
-.stat-card p {
-  overflow-wrap: anywhere;
-}
-
-/* -------------------------------
-   TASK ROWS / CARDS
--------------------------------- */
-
-.task-row,
-.task-card {
-  width: 100%;
+/* Task cards */
+.task-card,
+.task-row {
   max-width: 100%;
   min-width: 0;
 }
 
-.task-row > *,
-.task-card > * {
+.task-main {
   min-width: 0;
+  overflow-wrap: anywhere;
 }
 
-.task-actions {
-  flex-wrap: wrap;
-}
-
-/* -------------------------------
-   FORMS
--------------------------------- */
-
+/* Forms */
 .create-task-wrapper,
 .form-page {
   width: 100%;
   max-width: 100%;
+  min-width: 0;
 }
 
 .create-task-card,
 .form-card {
   width: 100%;
-  max-width: 520px;
+  max-width: 720px;
   min-width: 0;
 }
 
@@ -794,235 +742,228 @@ img {
 .create-task-card select,
 .form-card input,
 .form-card textarea,
-.form-card select,
-.form-group input,
-.form-group textarea,
-.form-group select {
+.form-card select {
+  width: 100%;
   max-width: 100%;
-  box-sizing: border-box;
+  min-width: 0;
 }
 
-/* -------------------------------
-   MODALS
--------------------------------- */
-
-.modal-overlay {
-  padding: 16px;
+/* Filter */
+.filter-bar {
+  width: 100%;
+  min-width: 0;
 }
 
-.modal {
-  width: min(420px, 100%);
+.filter-bar input,
+.filter-bar select {
+  width: 100%;
+  min-width: 0;
+}
+
+/* Chart */
+.chart-card {
+  width: 100%;
   max-width: 100%;
-  max-height: calc(100vh - 32px);
-  overflow-y: auto;
-  box-sizing: border-box;
-}
-
-.modal input,
-.modal textarea,
-.modal select {
-  max-width: 100%;
-  box-sizing: border-box;
-}
-
-.modal-actions {
-  flex-wrap: wrap;
-}
-
-/* =========================================================
-   LARGE TABLET / SMALL LAPTOP
-   <= 1100px
-   ========================================================= */
-
-@media (max-width: 1100px) {
-
-  .sidebar {
-    flex-basis: 200px;
-    width: 200px;
-    padding: 16px;
-  }
-
-  .stats-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .page-content {
-    padding: 24px;
-  }
+  min-width: 0;
+  overflow: hidden;
 }
 
 /* =========================================================
    TABLET
-   <= 768px
    ========================================================= */
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
 
-  /* App */
-  .app-layout {
-    display: block;
-    min-height: 100vh;
-  }
-
-  /* Sidebar becomes mobile-friendly */
   .sidebar {
-    position: fixed;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    z-index: 1000;
-
-    width: min(280px, 82vw);
-    flex-basis: auto;
-
-    overflow-y: auto;
-    transform: translateX(0);
-  }
-
-  /*
-    If your Sidebar component uses the collapsed class,
-    make collapsed sidebar disappear on mobile.
-  */
-  .sidebar.collapsed {
-    width: min(280px, 82vw);
-  }
-
-  /* Main content takes full screen */
-  .main-content {
-    width: 100%;
-    min-width: 0;
+    flex-basis: 200px;
+    width: 200px;
+    min-width: 200px;
   }
 
   .page-content {
-    width: 100%;
-    padding: 20px 16px;
+    padding: 18px;
   }
 
-  /* Navbar */
-  .navbar {
-    min-height: 60px;
-    padding: 10px 16px;
-  }
-
-  /* Stats */
-  .stats-grid {
+  .stats-five {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 14px;
   }
 
-  /* Task cards */
-  .task-row,
-  .task-card {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 14px;
-  }
-
-  .task-actions {
-    justify-content: flex-start;
-  }
-
-  /* Create task */
-  .create-task-wrapper,
-  .form-page {
-    padding: 20px 12px;
-  }
-
-  .create-task-card,
-  .form-card {
-    width: 100%;
-    max-width: 100%;
-  }
-
-  /* Two-column form rows become one column */
-  .task-row {
-    display: flex;
-    flex-direction: column;
-  }
-
-  /* Modal */
-  .modal-actions {
-    justify-content: stretch;
-  }
-
-  .modal-actions button {
-    flex: 1 1 120px;
+  .filter-bar {
+    grid-template-columns: 1fr 1fr;
   }
 }
 
 /* =========================================================
    MOBILE
-   <= 480px
    ========================================================= */
 
-@media (max-width: 480px) {
+@media (max-width: 600px) {
 
-  .page-content {
-    padding: 16px 12px;
+  /* IMPORTANT:
+     Sidebar should NOT occupy phone screen.
+  */
+
+  .app-layout {
+    display: block;
+    width: 100%;
+    min-height: 100vh;
   }
 
-  /* Sidebar */
   .sidebar {
-    width: min(270px, 84vw);
+    display: none;
+  }
+
+  /* Full width content */
+  .main-content {
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+  }
+
+  .page-content {
+    width: 100%;
+    max-width: 100%;
+    padding: 14px 12px;
   }
 
   /* Navbar */
   .navbar {
+    width: 100%;
+    min-width: 0;
+    height: auto;
     min-height: 58px;
-    padding: 8px 12px;
+    padding: 10px 12px;
     gap: 8px;
+    overflow: hidden;
+  }
+
+  .navbar > * {
+    min-width: 0;
   }
 
   .navbar button {
-    padding: 6px 9px;
+    max-width: 100%;
+    white-space: nowrap;
     font-size: 13px;
+    padding: 7px 10px;
   }
 
   /* Dashboard */
-  .stats-grid {
+  .stats-grid,
+  .stats-five {
     grid-template-columns: 1fr;
+    width: 100%;
     gap: 12px;
   }
 
   .stat-card {
+    width: 100%;
+    max-width: 100%;
     padding: 16px;
   }
 
-  .stat-card p {
-    font-size: 24px;
+  /* Dashboard heading */
+  .page-heading-row {
+    width: 100%;
+    min-width: 0;
+    gap: 10px;
   }
 
-  /* Task */
-  .task-row,
-  .task-card {
+  .page-heading-row h1,
+  .page-heading-row h2,
+  .page-heading-row h3 {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+
+  /* Task cards */
+  .task-card,
+  .task-row {
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
     padding: 14px;
+  }
+
+  .task-main {
+    width: 100%;
+  }
+
+  .task-title-row {
+    flex-wrap: wrap;
   }
 
   .task-actions {
     width: 100%;
     display: flex;
-    flex-direction: column;
-    align-items: stretch;
+    flex-wrap: wrap;
+    gap: 8px;
   }
 
-  .task-actions button {
+  .task-actions button,
+  .task-actions select {
+    max-width: 100%;
+  }
+
+  /* Filters */
+  .filter-bar {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+    gap: 10px;
+  }
+
+  /* Create Task */
+  .create-task-wrapper {
+    width: 100%;
+    max-width: 100%;
+    padding: 12px 4px;
+  }
+
+  .create-task-card {
+    width: 100%;
+    max-width: 100%;
+    padding: 18px;
+    border-radius: 14px;
+  }
+
+  .task-row-form {
+    grid-template-columns: 1fr;
     width: 100%;
   }
 
-  /* Forms */
-  .create-task-wrapper,
+  /* AI box */
+  .ai-box {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .ai-box-head {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .ai-box-head button {
+    width: 100%;
+  }
+
+  /* Form */
   .form-page {
-    padding: 14px 8px;
+    width: 100%;
+    padding: 16px 6px;
   }
 
-  .create-task-card,
   .form-card {
-    padding: 18px;
-    border-radius: 12px;
+    width: 100%;
+    max-width: 100%;
   }
 
-  .create-task-card h3 {
-    font-size: 20px;
+  .form-body {
+    padding: 18px;
   }
 
   /* Modal */
@@ -1032,44 +973,91 @@ img {
 
   .modal {
     width: 100%;
-    padding: 18px;
-    border-radius: 12px;
+    max-width: 100%;
+    max-height: calc(100vh - 20px);
+    overflow-y: auto;
   }
 
   .modal-actions {
     flex-direction: column;
+    width: 100%;
   }
 
   .modal-actions button {
     width: 100%;
   }
+
+  /* Prevent oversized text */
+  h1 {
+    font-size: clamp(24px, 7vw, 34px);
+  }
+
+  h2 {
+    font-size: clamp(21px, 6vw, 30px);
+  }
+
+  h3 {
+    font-size: clamp(18px, 5vw, 24px);
+  }
+
+  /* Buttons never overflow */
+  button {
+    max-width: 100%;
+  }
 }
 
 /* =========================================================
-   VERY SMALL PHONES
-   <= 360px
+   SMALL PHONES
    ========================================================= */
 
-@media (max-width: 360px) {
+@media (max-width: 390px) {
 
   .page-content {
-    padding: 12px 8px;
+    padding: 12px 9px;
   }
 
   .navbar {
-    padding: 8px;
+    padding: 8px 9px;
   }
 
-  .create-task-card,
-  .form-card {
-    padding: 14px;
+  .navbar button {
+    padding: 6px 8px;
+    font-size: 12px;
+  }
+
+  .create-task-card {
+    padding: 15px;
+  }
+
+  .form-body {
+    padding: 15px;
   }
 
   .stat-card {
     padding: 14px;
   }
 
-  button {
-    max-width: 100%;
+  .task-card,
+  .task-row {
+    padding: 12px;
+  }
+}
+
+/* =========================================================
+   VERY SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 350px) {
+
+  .page-content {
+    padding: 10px 7px;
+  }
+
+  .create-task-card {
+    padding: 13px;
+  }
+
+  .navbar {
+    gap: 5px;
   }
 }

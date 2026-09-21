@@ -129,3 +129,71 @@ input:focus, select:focus {
 }
 .form-error { color: #b91c1c; background: #fef2f2; padding: 10px 12px; border-radius: 8px; margin-bottom: 12px; font-size: 13px; }
 button:disabled { opacity: .65; cursor: not-allowed; }
+
+/* =========================================================
+   LOGIN + SIGNUP IMAGE RESPONSIVE FIX
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  /* Don't hide illustration on mobile */
+  .auth-left {
+    display: flex !important;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px 16px 10px;
+  }
+
+  .auth-left img {
+    display: block !important;
+    width: 180px;
+    max-width: 70%;
+    height: auto;
+    object-fit: contain;
+    margin: 0 auto;
+  }
+
+  .auth-right {
+    width: 100%;
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+
+  .auth-left {
+    padding: 16px 12px 8px;
+  }
+
+  .auth-left img {
+    width: 150px;
+    max-width: 65%;
+  }
+
+  .auth-right {
+    width: 100%;
+    padding: 18px 16px;
+  }
+
+  .auth-right input,
+  .auth-right select,
+  .auth-right button {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+/* Very small phones */
+@media (max-width: 360px) {
+
+  .auth-left img {
+    width: 130px;
+  }
+
+  .auth-right {
+    padding: 15px 12px;
+  }
+}
